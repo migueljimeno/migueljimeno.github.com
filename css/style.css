@@ -1,0 +1,88 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {color:#333333; text-decoration:underline; font-weight:bold;}
+a:hover {color:black;}
+strong {font-weight:bold;}
+h1 {float:left; width:auto; padding:0 0 0 38px; font:normal 35px "PT Sans",Arial; letter-spacing:-2px; line-height:35px; color:black; background:url('../img/sprite.png') no-repeat 0 -41px;}
+h1 span {display:block; font:normal 14px "Droid Sans"; color:#666666; text-align:right; letter-spacing:-1px;}
+h2 {position:relative; font:bold 55px "PT Sans"; color:#666666; line-height:normal; letter-spacing:-3px;}
+h2 small {padding:0 0 0 4px; font-size:14px; letter-spacing:0; line-height:55px; color:#CCCCCC; text-transform:uppercase;}
+h2 em {padding:0 0 0 4px; font-size:20px; color:#999999;}
+h2 span {position:absolute; top:0px; left:58px; color:#999; font-size:35px; line-height:38px;}
+h3 {padding:2px 0 12px 27px; font:bold 17px "PT Sans",Arial; color:#555555; font-weight:700; background:url('../img/sprite.png') no-repeat 0 0; letter-spacing:-1px;}
+h3.price {background-position:0 -199px;}
+h3.contact {background-position:0 -238px;}
+h3.map {background-position:0 -284px;}
+h3.info {background-position:0 -326px;}
+p {font:normal 14px "Droid Sans",Arial; color:#535353; line-height:20px;}
+ul {width:100%; margin:12px 0 0 0; letter-spacing:-4px;}
+li {position:relative; display:inline-block; *display:block; zoom:1; vertical-align:top; width:225px; margin:0 20px 0 0; letter-spacing:0;}
+li:last-child {margin-right:0!important;}
+
+
+body {height:100%; width:100%; background:url('../img/bkg.jpg') repeat 0 0;}
+header {margin:30px auto 40px; width:780px; overflow:hidden;}
+header nav {float:right; width:auto; margin:11px 0 0;}
+header a {margin:0 0 0 10px; font:bold 14px "PT Sans",Arial; color:#666666; text-decoration:none; border-bottom:1px solid rgba(0,0,0,0); transition: border-bottom 1s; -moz-transition: border-bottom 1s; -webkit-transition: border-bottom 1s; -o-transition: border-bottom 1s;}
+header a:hover {border-bottom:1px solid black; transition: border-bottom .5s; -moz-transition: border-bottom .5s; -webkit-transition: border-bottom .5s; -o-transition: border-bottom .5s;}
+div#layout {margin:0 auto; width:789px;}
+article {position:relative; width:777px; padding:0 6px; background:url('../img/sprite.png') repeat-y -789px 0;}
+section {position:relative; padding:30px; display:block; border-bottom:1px solid #DDDDDD;}
+section:last-child {position:relative; border:none;}
+section.map {position:relative; height:400px; padding-bottom:0;}
+div.info {position:absolute; z-index:5; display:none; top:145px; right:10px; width:175px; height:auto; padding:10px; background:rgba(0,0,0,0.7); z-index:10; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#550000FF, endColorstr=#550000FF);}
+div.info p {color:white;}
+div#map {position:absolute; bottom:0; left:0; height:300px; width:100%; z-index:1;}
+ul.prices li {margin:20px 21px 0 0; background:url('../img/sprite.png') no-repeat 0 0;}
+ul.prices li.bench {background-position:0 -86px;}
+ul.prices li.home {background-position:-245px -84px;}
+ul.prices li.money {background-position:-500px -84px;}
+section ul li.bench p,
+section ul li.home p,
+section ul li.money p {position:absolute; top:58px; left:88px; font:bold 13px "Droid Sans"; color:#ABABAB; line-height:normal;}
+ul.prices li {width:140px; padding:0 0 0 85px;}
+footer {width:780px; margin:20px auto 60px; text-align:center;}
+footer p {font:normal 13px Arial; color:#999999;}
+article div.b {position:absolute; bottom:-12px; left:0; width:789px; height:12px; background:url('../img/sprite.png') no-repeat 0 -9px;}
