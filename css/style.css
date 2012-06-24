@@ -69,12 +69,13 @@ header a {margin:0 0 0 10px; font:bold 14px "PT Sans",Arial; color:#666666; text
 header a:hover {border-bottom:1px solid black; transition: border-bottom .5s; -moz-transition: border-bottom .5s; -webkit-transition: border-bottom .5s; -o-transition: border-bottom .5s;}
 div#layout {margin:0 auto; width:789px;}
 article {position:relative; width:777px; padding:0 6px; background:url('../img/sprite.png') repeat-y -789px 0;}
+article div.b {position:absolute; bottom:-12px; left:0; width:789px; height:12px; background:url('../img/sprite.png') no-repeat 0 -9px;}
 section {position:relative; padding:30px; display:block; border-bottom:1px solid #DDDDDD;}
 section:last-child {position:relative; border:none;}
-section.map {position:relative; height:400px; padding-bottom:0;}
+section.map {position:relative; height:410px; padding-bottom:0;}
 div.info {position:absolute; z-index:5; display:none; top:145px; right:10px; width:175px; height:auto; padding:10px; background:rgba(0,0,0,0.7); z-index:10; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#550000FF, endColorstr=#550000FF);}
 div.info p {color:white;}
-div#map {position:absolute; bottom:0; left:0; height:300px; width:100%; z-index:1;}
+div#map {position:absolute; bottom:0; left:0; height:300px; width:100%; z-index:1; border-top:1px solid #DDDDDD;}
 ul.prices li {margin:20px 21px 0 0; background:url('../img/sprite.png') no-repeat 0 0;}
 ul.prices li.bench {background-position:0 -86px;}
 ul.prices li.home {background-position:-245px -84px;}
@@ -83,6 +84,8 @@ section ul li.bench p,
 section ul li.home p,
 section ul li.money p {position:absolute; top:58px; left:88px; font:bold 13px "Droid Sans"; color:#ABABAB; line-height:normal;}
 ul.prices li {width:140px; padding:0 0 0 85px;}
-footer {width:780px; margin:20px auto 60px; text-align:center;}
-footer p {font:normal 13px Arial; color:#999999;}
-article div.b {position:absolute; bottom:-12px; left:0; width:789px; height:12px; background:url('../img/sprite.png') no-repeat 0 -9px;}
+footer {width:780px; margin:20px auto 0; text-align:center;}
+footer p {padding:0 0 40px 0; font:normal 12px Arial; color:#999999;}
+a.xavijam {float:right; padding:0 0 25px 0; background:url('../img/gentoos.png') no-repeat 0 12px; font:normal 9px "PT Sans"; color:#777777; text-decoration:none;}
+a.xavijam em {display:block; padding:0 6px 0 0; text-align:right;}
+a.xavijam:hover {color:#333333;}

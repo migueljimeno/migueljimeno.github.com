@@ -1,7 +1,8 @@
-    
 
-
-
+	
+	$(function() {
+		$('div#map').initMap();
+	});
 
 
     function initMap() {

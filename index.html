@@ -24,9 +24,9 @@
   <header>
     <h1>Miguel<strong>Jimeno</strong><span>FISIOTERAPEUTA</span></h1>
     <nav>
-      <a href="#precios">PRECIOS</a>
-      <a href="#mapa">MAPA</a>
-      <a href="#contacto">CONTACTO</a>      
+      <a href="#prices">PRECIOS</a>
+      <a href="#map">MAPA</a>
+      <a href="#contact">CONTACTO</a>      
       <a href="#info">INFO</a>
     </nav>
   </header>
@@ -35,8 +35,11 @@
       <div class="b"></div>
       <div class="t"></div>
       <section class="gallery">
+        <img src="http://placehold.it/800x300?text=image1" />
+    		<img src="http://placehold.it/800x300?text=image2" />
+    		<img src="http://placehold.it/800x300?text=image3" />
       </section>
-      <section>
+      <section id="prices">
         <h3 class="price">PRECIOS</h3>
         <p>Nuestros precios varían en función del desplazamiento y si contratas más de una sesión en el mismo día.. Además existe la posibilidad de contratar bonos especiales, consúltanos.</p>
         <ul class="prices">
@@ -60,7 +63,7 @@
         <div id="map"></div>
         <div class="info"><p></p></div>
       </section>
-      <section>
+      <section id="contact">
         <h3 class="contact">CONTACTO</h3>
         <p>Puedes contactarnos a cualquier hora del día por teléfono o por vía email para concretar una sesión.</p>
         <ul>
@@ -69,7 +72,7 @@
           <li><p class="more">PRONTO MÁS</p></li>
         </ul>
       </section>
-      <section>
+      <section id="info">
         <h3 class="info">INFORMACIÓN</h3>
         <ul>
           <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget arcu augue. Mauris ultricies auctor massa, quis dapibus neque tincidunt vel.</p></li>
@@ -79,13 +82,15 @@
       </section>
     </article>
   </div>
-  <footer><p>® Todos los derechos reservados · 2012 · MiguelJimeno.com</p></footer>
-  <a href="http://xavijam.github.com" target="_blank">DEVELOPED <em>BY</em></a>
+  <footer>
+  	<p>® Todos los derechos reservados · 2012 · MiguelJimeno.com</p>
+  	<a class="xavijam" href="http://xavijam.github.com" target="_blank">DEVELOPED <em>BY</em></a>
+  </footer>
 
-  <script src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false&callback=initMap"></script>
+  <script src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
+  <script src="js/widgets.js"></script>
   <script src="js/script.js"></script>
   <script>
     var _gaq=[['_setAccount','UA-6602253-9'],['_trackPageview']];
