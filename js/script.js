@@ -1,7 +1,6 @@
 
 	
 	$(function() {
-		//$('div#map').initMap();
     initMap();
     // Slider
     $('#gallery').nivoSlider();
@@ -11,7 +10,9 @@
 
 
     function initMap() {
-      fleky = new google.maps.LatLng(40.33323080843243, -3.837350606918335);
+      alcorcon = new google.maps.LatLng(40.33323080843243, -3.837350606918335);
+      mataelpino = new google.maps.LatLng(40.7363468, -3.9450638);
+
       you_image = new google.maps.MarkerImage('../img/marker-2.png',new google.maps.Size(23, 32),new google.maps.Point(0,0),new google.maps.Point(12, 32));
       fleky_image = new google.maps.MarkerImage('../img/marker-1.png',new google.maps.Size(30,30),new google.maps.Point(0,0),new google.maps.Point(15, 15));
       
@@ -35,47 +36,61 @@
     	 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
-        function(position){
-          showRoad(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-        },onErrorGeolocation(),{enableHighAccuracy:true});
+          function(position){
+
+            var user_pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+              , alcorcon_dist = parseFloat(distHaversine(user_pos,alcorcon))
+              , mataelpino_dist = parseFloat(distHaversine(user_pos,mataelpino));
+
+            if (alcorcon_dist < mataelpino_dist) {
+              showRoad(new google.maps.LatLng(position.coords.latitude, position.coords.longitude), alcorcon_dist, "Alcorcón");
+            } else {
+              showRoad(new google.maps.LatLng(position.coords.latitude, position.coords.longitude), mataelpino_dist, "Mataelpino");
+            }
+
+          },
+          onErrorGeolocation,
+          {enableHighAccuracy:true}
+        );
       } else {
-       	onErrorGeolocation();
+       	onErrorGeolocation;
       }	
     }
     
     
     function onErrorGeolocation() {
-  		var marker = new google.maps.Marker({position: fleky,map:map,title:"¡Esta es nuestra clínica!",icon:fleky_image});
-  		map.setCenter(fleky);
-  		map.setZoom(14);
-  		map.panBy(70,0);
+  		var alcorcon_m = new google.maps.Marker({position: alcorcon, map:map, title:"¡Esta es nuestra clínica de Alcorcón!",icon:fleky_image})
+        , mataelpino_m = new google.maps.Marker({position: mataelpino, map:map, title:"¡Esta es nuestra clínica de Mataelpino!",icon:fleky_image});
+
+  		map.setCenter(new google.maps.LatLng(40.554,-3.7133));
+  		map.setZoom(9);
       $('div.info p').html('No hemos podido geolocalizar tu posición, en cualquier caso, ya sabes que puedes'+
-			' visitarme en:</br></br>C/Mediterráneo, 2. Portal 4, 2º A. Alcorcón.');
+			' visitarnos en:</br></br>C/Mediterráneo, 2. Portal 4, 2º A. Alcorcón.<br/>  o  <br/>C/Pocillo, 10. Mataelpino, El Boalo.');
 			$('div.info').fadeIn();
     }
     
     
     
-    function showRoad(initialLocation) {
-    	var bounds = new google.maps.LatLngBounds();
-    	bounds.extend(initialLocation);
-    	bounds.extend(fleky);
+    function showRoad(initialLocation, distance, place) {
+    	var bounds = new google.maps.LatLngBounds()
+        , clinic = (place == "Alcorcón") ? alcorcon : mataelpino ;
 
-    	var distance = distHaversine(initialLocation,fleky);
+    	bounds.extend(initialLocation);
+    	bounds.extend(clinic);
+
 
     	if (distance<0.05) {
-        var marker = new google.maps.Marker({position: fleky,map: map,title:"¡Esta es mi clínica!",icon:fleky_image});
-    		map.setCenter(fleky);
+        var marker = new google.maps.Marker({position: clinic, map: map, title:"¡Esta es mi clínica en " + place + "!",icon:fleky_image});
+    		map.setCenter(clinic);
     	} else if (distance>=0.05 && distance<0.5) {
-    		calcRoute(initialLocation,"walking");
+    		calcRoute(initialLocation,clinic,"walking");
     	} else if (distance>=0.5 && distance<800) {
-    		calcRoute(initialLocation,"driving");
+    		calcRoute(initialLocation,clinic,"driving");
     	} else if (distance>=800) {
-    		var distance = distHaversine(initialLocation,vizzuality);
     		var hours = Math.ceil(distance/700);
-    		var marker = new google.maps.Marker({position: fleky,map:map,title:"¡Esta es mi clínica!",icon:fleky_image});
+    		var marker = new google.maps.Marker({position: clinic,map:map,title:"¡Esta es mi clínica en " + place + "!",icon:fleky_image});
     		var marker = new google.maps.Marker({position: initialLocation, map: map, title:"¿Aquí estas tú?!",icon:you_image});
-    		var geodesic_line = [fleky,initialLocation];
+    		var geodesic_line = [clinic,initialLocation];
     	  var geodesic_path = new google.maps.Polyline({
     	    path: geodesic_line,
     	    strokeColor: '#090909',
@@ -93,9 +108,8 @@
     	
     	
     	
-    	function calcRoute(origin,kind) {
+    	function calcRoute(origin,end,kind) {
     	  var start = origin;
-    	  var end = fleky;
 
     	  var request = {origin:origin, destination:end,travelMode: (kind=="driving")? google.maps.DirectionsTravelMode.DRIVING : google.maps.DirectionsTravelMode.WALKING};
     	  directionsService.route(request, function(response, status) {
@@ -116,9 +130,9 @@
     	function createColorPoly(steps){    
   	    var path = Array();
         for(var step = 0; step < steps.length; step++){
-            for(var stepP = 0; stepP < steps[step].path.length; stepP++){
-                 path.push(steps[step].path[stepP]);
-            }
+          for(var stepP = 0; stepP < steps[step].path.length; stepP++){
+            path.push(steps[step].path[stepP]);
+          }
      	  }
   	    var poly_options = {'strokeWeight':'5','strokeColor':'#0099CC'} ;
   	    var newPoly = new google.maps.Polyline(poly_options);

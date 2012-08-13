@@ -52,12 +52,12 @@ h2 {position:relative; font:bold 55px "PT Sans"; color:#666666; line-height:norm
 h2 small {padding:0 0 0 4px; font-size:14px; letter-spacing:0; line-height:55px; color:#CCCCCC; text-transform:uppercase;}
 h2 em {padding:0 0 0 4px; font-size:20px; color:#999999;}
 h2 span {position:absolute; top:0px; left:58px; color:#999; font-size:35px; line-height:38px;}
-h3 {padding:2px 0 12px 27px; font:bold 17px "PT Sans",Arial; color:#555555; font-weight:700; background:url('../img/sprite.png') no-repeat 0 0; letter-spacing:-1px;}
+h3 {padding:2px 0 12px 27px; font:bold 15px "PT Sans",Arial; color:#454545; font-weight:700; background:url('../img/sprite.png') no-repeat 0 0; letter-spacing:0;}
 h3.price {background-position:0 -199px;}
 h3.contact {background-position:0 -238px;}
 h3.map {background-position:0 -284px;}
 h3.info {background-position:0 -326px;}
-p {font:normal 14px "Droid Sans",Arial; color:#535353; line-height:20px;}
+p {font:normal 14px "Droid Sans",Arial; color:#898989; line-height:20px;}
 ul {width:100%; margin:12px 0 0 0; letter-spacing:-4px;}
 li {position:relative; display:inline-block; *display:block; zoom:1; vertical-align:top; width:225px; margin:0 20px 0 0; letter-spacing:0;}
 li:last-child {margin-right:0!important;}
@@ -71,9 +71,9 @@ header a:hover {border-bottom:1px solid black; transition: border-bottom .5s; -m
 div#layout {margin:0 auto; width:789px;}
 article {position:relative; width:777px; padding:0 6px; background:url('../img/sprite.png') repeat-y -789px 0;}
 article div.b {position:absolute; bottom:-12px; left:0; width:789px; height:12px; background:url('../img/sprite.png') no-repeat 0 -9px;}
-article div.t {position:absolute; top:0; left:0; width:789px; z-index:10000;}
-article div.t span.cl {position:absolute; top:0; left:0; width:12px; height:12px; background:url('../img/corner.png') -3px -8px;}
-article div.t span.cr {position:absolute; top:0; right:0; width:12px; height:12px; background:url('../img/corner.png') -25px -8px;}
+article div.t {position:absolute; top:-5px; left:0; width:789px; height:6px; z-index:10000; background:url('../img/sprite.png') no-repeat 0 0}
+article div.t span.cl {position:absolute; top:5px; left:0; width:12px; height:12px; background:url('../img/corner.png') -3px -8px;}
+article div.t span.cr {position:absolute; top:5px; right:0; width:12px; height:12px; background:url('../img/corner.png') -25px -8px;}
 section {position:relative; padding:30px; display:block; border-bottom:1px solid #DDDDDD;}
 section:last-child {position:relative; border:none;}
 section.gallery {padding:0; border-top:1px solid #D8D8D8;}
@@ -100,8 +100,8 @@ a.xavijam:hover {color:#333333;}
 /* The Nivo Slider styles */
 .nivoSlider {
   position:relative;
-  width:100%;
-  height:auto;
+  width:777px;
+  height:400px;
   overflow: hidden;
 }
 .nivoSlider img {
