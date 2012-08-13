@@ -45,7 +45,8 @@ table {
 a {color:#333333; text-decoration:underline; font-weight:bold;}
 a:hover {color:black;}
 strong {font-weight:bold;}
-h1 {float:left; width:auto; padding:0 0 0 38px; font:normal 35px "PT Sans",Arial; letter-spacing:-2px; line-height:35px; color:black; background:url('../img/sprite.png') no-repeat 0 -41px;}
+h1 {float:left; width:auto; padding:0 0 0 38px; font:normal 35px "PT Sans",Arial; letter-spacing:-3px; line-height:35px; color:black; background:url('../img/sprite.png') no-repeat 0 -41px;}
+h1 strong {margin:0 0 0 5px;}
 h1 span {display:block; font:normal 14px "Droid Sans"; color:#666666; text-align:right; letter-spacing:-1px;}
 h2 {position:relative; font:bold 55px "PT Sans"; color:#666666; line-height:normal; letter-spacing:-3px;}
 h2 small {padding:0 0 0 4px; font-size:14px; letter-spacing:0; line-height:55px; color:#CCCCCC; text-transform:uppercase;}
@@ -65,13 +66,17 @@ li:last-child {margin-right:0!important;}
 body {height:100%; width:100%; background:url('../img/bkg.jpg') repeat 0 0;}
 header {margin:30px auto 40px; width:780px; overflow:hidden;}
 header nav {float:right; width:auto; margin:11px 0 0;}
-header a {margin:0 0 0 10px; font:bold 14px "PT Sans",Arial; color:#666666; text-decoration:none; border-bottom:1px solid rgba(0,0,0,0); transition: border-bottom 1s; -moz-transition: border-bottom 1s; -webkit-transition: border-bottom 1s; -o-transition: border-bottom 1s;}
+header a {margin:0 0 0 25px; font:bold 14px "PT Sans",Arial; color:#666666; text-decoration:none; border-bottom:1px solid rgba(0,0,0,0); transition: border-bottom 1s; -moz-transition: border-bottom 1s; -webkit-transition: border-bottom 1s; -o-transition: border-bottom 1s;}
 header a:hover {border-bottom:1px solid black; transition: border-bottom .5s; -moz-transition: border-bottom .5s; -webkit-transition: border-bottom .5s; -o-transition: border-bottom .5s;}
 div#layout {margin:0 auto; width:789px;}
 article {position:relative; width:777px; padding:0 6px; background:url('../img/sprite.png') repeat-y -789px 0;}
 article div.b {position:absolute; bottom:-12px; left:0; width:789px; height:12px; background:url('../img/sprite.png') no-repeat 0 -9px;}
+article div.t {position:absolute; top:0; left:0; width:789px; z-index:10000;}
+article div.t span.cl {position:absolute; top:0; left:0; width:12px; height:12px; background:url('../img/corner.png') -3px -8px;}
+article div.t span.cr {position:absolute; top:0; right:0; width:12px; height:12px; background:url('../img/corner.png') -25px -8px;}
 section {position:relative; padding:30px; display:block; border-bottom:1px solid #DDDDDD;}
 section:last-child {position:relative; border:none;}
+section.gallery {padding:0; border-top:1px solid #D8D8D8;}
 section.map {position:relative; height:410px; padding-bottom:0;}
 div.info {position:absolute; z-index:5; display:none; top:145px; right:10px; width:175px; height:auto; padding:10px; background:rgba(0,0,0,0.7); z-index:10; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#550000FF, endColorstr=#550000FF);}
 div.info p {color:white;}
@@ -86,6 +91,188 @@ section ul li.money p {position:absolute; top:58px; left:88px; font:bold 13px "D
 ul.prices li {width:140px; padding:0 0 0 85px;}
 footer {width:780px; margin:20px auto 0; text-align:center;}
 footer p {padding:0 0 40px 0; font:normal 12px Arial; color:#999999;}
-a.xavijam {float:right; padding:0 0 25px 0; background:url('../img/gentoos.png') no-repeat 0 12px; font:normal 9px "PT Sans"; color:#777777; text-decoration:none;}
+a.xavijam {float:right; padding:0 0 23px 0; background:url('../img/gentoos.png') no-repeat 0 12px; font:normal 9px "PT Sans"; color:#777777; text-decoration:none;}
 a.xavijam em {display:block; padding:0 6px 0 0; text-align:right;}
 a.xavijam:hover {color:#333333;}
+
+/* SLIDER */
+ 
+/* The Nivo Slider styles */
+.nivoSlider {
+  position:relative;
+  width:100%;
+  height:auto;
+  overflow: hidden;
+}
+.nivoSlider img {
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+.nivo-main-image {
+  display: block !important;
+  position: relative !important; 
+  width: 100% !important;
+}
+
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  border:0;
+  padding:0;
+  margin:0;
+  z-index:6;
+  display:none;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+  display:block;
+  position:absolute;
+  z-index:5;
+  height:100%;
+  top:0;
+}
+.nivo-box {
+  display:block;
+  position:absolute;
+  z-index:5;
+  overflow:hidden;
+}
+.nivo-box img { display:block; }
+
+/* Caption styles */
+.nivo-caption {
+  position:absolute;
+  left:0px;
+  bottom:0px;
+  background:#000;
+  color:#fff;
+  width:100%;
+  z-index:8;
+  padding: 5px 10px;
+  opacity: 0.8;
+  overflow: hidden;
+  display: none;
+  -moz-opacity: 0.8;
+  filter:alpha(opacity=8);
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.nivo-caption p {
+  padding:5px;
+  margin:0;
+}
+.nivo-caption a {
+  display:inline !important;
+}
+.nivo-html-caption {
+    display:none;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+  position:absolute;
+  top:45%;
+  z-index:9;
+  cursor:pointer;
+}
+.nivo-prevNav {
+  left:0px;
+}
+.nivo-nextNav {
+  right:0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  display:block;
+  padding:0;
+  text-align:center;
+  z-index:1000;
+}
+.nivo-controlNav a {
+  cursor:pointer;
+}
+.nivo-controlNav a.active {
+  font-weight:bold;
+}
+
+
+
+
+.theme-default .nivoSlider {
+  position:relative;
+  background:#fff url(../img/loading.gif) no-repeat 50% 50%;
+}
+.theme-default .nivoSlider img {
+  position:absolute;
+  top:0px;
+  left:0px;
+  display:none;
+}
+.theme-default .nivoSlider a {
+  border:0;
+  display:block;
+}
+
+.theme-default .nivo-controlNav a {
+  display:inline-block;
+  width:22px;
+  height:22px;
+  background:url(../img/bullets.png) no-repeat;
+  text-indent:-9999px;
+  border:0;
+  margin: 0 2px;
+}
+.theme-default .nivo-controlNav a.active {
+  background-position:0 -22px;
+}
+
+.theme-default .nivo-directionNav a {
+  display:block;
+  width:30px;
+  height:30px;
+  background:url(../img/arrows.png) no-repeat;
+  text-indent:-9999px;
+  border:0;
+}
+.theme-default a.nivo-nextNav {
+  background-position:-30px 0;
+  right:15px;
+}
+.theme-default a.nivo-prevNav {
+  left:15px;
+}
+
+.theme-default .nivo-caption {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.theme-default .nivo-caption a {
+    color:#fff;
+    border-bottom:1px dotted #fff;
+}
+.theme-default .nivo-caption a:hover {
+    color:#fff;
+}
+
+.theme-default .nivo-controlNav.nivo-thumbs-enabled {
+  width: 100%;
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled a {
+  width: auto;
+  height: auto;
+  background: none;
+  margin-bottom: 5px;
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled img {
+  display: block;
+  width: 120px;
+  height: auto;
+}

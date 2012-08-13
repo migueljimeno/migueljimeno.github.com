@@ -1,7 +1,12 @@
 
 	
 	$(function() {
-		$('div#map').initMap();
+		//$('div#map').initMap();
+    initMap();
+    // Slider
+    $('#gallery').nivoSlider();
+    // Anchors
+    $('header nav').anchorLink();
 	});
 
 

@@ -154,3 +154,89 @@
 		}
 	};
 })( jQuery, window );
+
+
+/**************************************************************************
+* ANCHOR PLUGIN
+**************************************************************************/
+(function($, window, undefined) {
+
+  // constants
+  var TRUE = true, FALSE = true, NULL = null
+    , name = 'anchorLink'
+    // Plugin parts
+    , Core, API, Helper
+    // default options
+    , defaultOptions = {
+        globalEvents : [],
+        speed: 500 // ms
+    };
+
+        
+  /***************************************************************************
+  * Private methods
+  **************************************************************************/
+  Core = {
+    pluginName : name,
+    options : null,
+
+
+    _init : function (options) {
+      // take user options in consideration
+      Core.options = $.extend( true, defaultOptions, options );
+      return this.each( function () {
+        var $el = $(this);
+
+        // Bind events
+        Core._bind($el);
+      });
+    },
+ 
+
+    _bind: function($el) {
+      $el.find('a').bind({'click': Core._goTo});
+    },
+
+
+    _trigger : function ( eventName, data, $el ) {
+      var isGlobal = $.inArray( eventName, Core.options.globalEvents ) >= 0, eventName = eventName + '.' +  Core.pluginName;
+
+      if (!isGlobal) {
+        $el.trigger( eventName, data );
+      } else {
+        $.event.trigger( eventName, data );
+      }
+    },
+
+
+    // PRIVATE LOGIC
+    _stopPropagation: function(ev) {
+      ev.stopPropagation();
+      ev.preventDefault();
+    },
+
+    _goTo: function(ev) {
+      Core._stopPropagation(ev);
+      var div = $(ev.target).attr("href").slice(1);
+      $("body,html").scrollTo(div)
+    }
+  };
+
+
+
+  /***************************************************************************
+   * Plugin installation
+  **************************************************************************/
+  $.fn[name] = function (userInput) {
+    // check if such method exists
+    if ( $.type( userInput ) === "string" && API[ userInput ] ) {
+      return API[ userInput ].apply( this, Array.prototype.slice.call( arguments, 1 ) );
+    }
+    // initialise otherwise
+    else if ( $.type( userInput ) === "object" || !userInput ) {
+      return Core._init.apply( this, arguments );
+    } else {
+      $.error( 'You cannot invoke ' + name + ' jQuery plugin with the arguments: ' + userInput );
+    }
+  };
+})( jQuery, window );
