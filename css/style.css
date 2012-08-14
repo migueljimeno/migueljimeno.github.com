@@ -77,10 +77,10 @@ article div.t span.cr {position:absolute; top:5px; right:0; width:12px; height:1
 section {position:relative; padding:30px; display:block; border-bottom:1px solid #DDDDDD;}
 section:last-child {position:relative; border:none;}
 section.gallery {padding:0; border-top:1px solid #D8D8D8;}
-section.map {position:relative; height:410px; padding-bottom:0;}
-div.info {position:absolute; z-index:5; display:none; top:145px; right:10px; width:175px; height:auto; padding:10px; background:rgba(0,0,0,0.7); z-index:10; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#550000FF, endColorstr=#550000FF);}
+section.map {position:relative; height:510px; padding-bottom:0;}
+div.info {position:absolute; display:none; top:150px; right:10px; width:200px; height:auto; padding:10px; background:rgba(0,0,0,0.75); z-index:10; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#550000FF, endColorstr=#550000FF);}
 div.info p {color:white;}
-div#map {position:absolute; bottom:0; left:0; height:300px; width:100%; z-index:1; border-top:1px solid #DDDDDD;}
+div#map {position:absolute; bottom:0; left:0; height:400px; width:100%; z-index:1; border-top:1px solid #DDDDDD;}
 ul.prices li {margin:20px 21px 0 0; background:url('../img/sprite.png') no-repeat 0 0;}
 ul.prices li.bench {background-position:0 -86px;}
 ul.prices li.home {background-position:-245px -84px;}
