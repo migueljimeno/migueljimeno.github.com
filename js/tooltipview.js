@@ -16,30 +16,23 @@
       var $content = $("<div>").addClass("tooltip");
       $content.append("<div class='t'><p>" + this.options.text + "</p></div>");
       $content.append("<div class='b'></div>");
-
-      var w = this.options.target.outerWidth()
-        , pos = this.options.target.offset()
-        , l = pos.left + (w/2) + 1;
-
-      $content.css({
-        left: l
-      });
-
-      this.$el = $content
+      this.$el = $content;
 
       return $content;
     },
 
     show: function(ev) {
       var $el = $(ev.target)
-        , t = $el.offset().top
+        , w = this.options.target.outerWidth()
+        , pos = this.options.target.offset()
+        , t = pos.top
+        , l = pos.left + (w/2) + 1
         , h = this.$el.outerHeight()
         , top = t - h;
 
       this.$el.css({
         top: top,
-        opacity: 0,
-        display: 'block'
+        left: l
       });
 
       if ($.browser.msie && $.browser.version < 8) {
@@ -47,7 +40,8 @@
       } else {
         this.$el.css({
           marginTop:10,
-          opacity:0
+          opacity:0,
+          display: 'block'
         });
 
         this.$el.stop(true).animate({

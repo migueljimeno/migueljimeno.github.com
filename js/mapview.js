@@ -4,11 +4,13 @@
     options: {
       alcorcon: {
         place: new google.maps.LatLng(40.33323080843243, -3.837350606918335),
-        address: "<a href='https://maps.google.es/maps?q=C%2FMediterr%C3%A1neo+2,+Alcorc%C3%B3n&hl=en&ie=UTF8&ll=40.332495,-3.837404&spn=0.014084,0.013304&sll=40.329804,-3.837072&sspn=0.007042,0.006652&gl=es&hnear=Calle+Mediterr%C3%A1neo,+28922+Alcorc%C3%B3n,+Madrid,+Comunidad+de+Madrid&t=m&z=16' target='_blank'>C/Mediterráneo 2, portal 4, 2ºA. Alcorcón</a>"
+        address: "C/Mediterráneo 2, portal 4, 2ºA. Alcorcón",
+        link: "<a href='https://maps.google.es/maps?q=C%2FMediterr%C3%A1neo+2,+Alcorc%C3%B3n&hl=en&ie=UTF8&ll=40.332495,-3.837404&spn=0.014084,0.013304&sll=40.329804,-3.837072&sspn=0.007042,0.006652&gl=es&hnear=Calle+Mediterr%C3%A1neo,+28922+Alcorc%C3%B3n,+Madrid,+Comunidad+de+Madrid&t=m&z=16' target='_blank'>C/Mediterráneo 2, portal 4, 2ºA. Alcorcón</a>"
       },
       mataelpino: {
         place: new google.maps.LatLng(40.7365348, -3.9453771),
-        address: "<a href='https://maps.google.es/maps?q=C%2FPocillo+20,+Mataelpino,+El+Boalo&hl=en&sll=40.332495,-3.837404&sspn=0.014084,0.013304&gl=es&hnear=Calle+del+Pocillo,+20,+28492+El+Boalo,+Madrid,+Comunidad+de+Madrid&t=m&z=17' target='_blank'>C/Pocillo 20, Mataelpino, El Boalo</a>"
+        address: "C/Pocillo 20, Mataelpino, El Boalo",
+        link: "<a href='https://maps.google.es/maps?q=C%2FPocillo+20,+Mataelpino,+El+Boalo&hl=en&sll=40.332495,-3.837404&sspn=0.014084,0.013304&gl=es&hnear=Calle+del+Pocillo,+20,+28492+El+Boalo,+Madrid,+Comunidad+de+Madrid&t=m&z=17' target='_blank'>C/Pocillo 20, Mataelpino, El Boalo</a>"
       },
       center: {
         place: new google.maps.LatLng(40.554,-3.7133),
@@ -92,9 +94,6 @@
     _onErrorGeolocation: function(e) {
       this.map.setCenter(this.options.center.place);
       this.map.setZoom(this.options.center.zoom);
-
-      this.options.textBox.find("p").remove();
-      this.options.textBox.append('<p>No hemos podido geolocalizar tu posición, en cualquier caso, ya sabes que puedes visitarnos en:</br></br>' + this.options.alcorcon.address + "<br/><span style='display:inline-block;margin:5px 0'>ó</span><br/>" + this.options.mataelpino.address);
     },
 
 
@@ -115,9 +114,9 @@
       }
 
       if (active) {
-        this.options.textBox.append('<p>Nosotros nos encontramos en dos localidades, pero la clínica que más cerca tienes está a ' + clinic.dist.toFixed(1) + 'km, y la puedes encontrar en: <strong>' + clinic.address + "</strong>.</p>");
+        this.options.textBox.append('<p>Nosotros nos encontramos en dos localidades, pero la clínica que más cerca tienes está a ' + clinic.dist.toFixed(1) + 'km, y la puedes encontrar en: <strong>' + clinic.link + "</strong>.</p>");
       } else {
-        this.options.textBox.append('<p style="margin-top:20px;">Sino también nos tienes a ' + clinic.dist.toFixed(1) + 'km en ' + clinic.address + ".</p>");
+        this.options.textBox.append('<p style="margin-top:20px;">Sino también nos tienes a ' + clinic.dist.toFixed(1) + 'km en ' + clinic.link + ".</p>");
       }
 
 

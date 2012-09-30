@@ -60,7 +60,7 @@ h3.map {background-position:0 -284px;}
 h3.info {background-position:0 -326px;}
 p {font:normal 14px "Droid Sans",Arial; color:#898989; line-height:20px;}
 ul {width:100%; margin:12px 0 0 0; letter-spacing:-4px;}
-li {position:relative; display:inline-block; *display:block; zoom:1; vertical-align:top; width:225px; margin:0 20px 0 0; letter-spacing:0;}
+li {position:relative; display:inline-block; display:-moz-inline-stack; zoom:1; *display:inline; vertical-align:top; width:225px; margin:0 20px 0 0; letter-spacing:0;}
 li:last-child {margin-right:0!important;}
 
 
@@ -81,20 +81,20 @@ section.gallery {width:100%; height:400px; padding:0; border-top:1px solid #D8D8
 section.map {position:relative; height:auto; padding-bottom:330px;}
 div.info {position:absolute; display:none; top:150px; right:10px; width:200px; height:auto; padding:10px; background:rgba(0,0,0,0.75); z-index:10; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#550000FF, endColorstr=#550000FF);}
 div.info p {font-size:13px; color:#F7F7F7; word-spacing:1px;}
-div#map {position:absolute; bottom:0; left:0; height:300px; width:100%; z-index:1; border-top:1px solid #DDDDDD;}
+div#map {position:absolute; bottom:0px; *bottom:1px; left:0; height:300px; width:100%; z-index:1; border-top:1px solid #DDDDDD;}
 ul.prices li {margin:20px 21px 0 0; background:url('../img/sprite.png') no-repeat 0 0;}
 ul.prices li.bench {background-position:0 -86px;}
 ul.prices li.home {background-position:-245px -84px;}
 ul.prices li.money {background-position:-500px -84px;}
 section ul li.bench p,
 section ul li.home p,
-section ul li.money p {position:absolute; top:58px; left:88px; font:bold 13px "Droid Sans"; color:#ABABAB; line-height:normal;}
+section ul li.money p {position:absolute; top:58px; left:88px; width:100%; font:bold 13px "Droid Sans"; color:#ABABAB; line-height:normal;}
 ul.prices li {width:140px; padding:0 0 0 85px;}
 section#contact ul {display:block; margin-top:30px;}
 section#contact p.phone {height:38px; padding-left:40px; font-size:25px; letter-spacing:-1px; line-height:38px; background:url('../img/contact.png');}
 section#contact p.email {min-height:38px; padding-left:50px; font-size:15px; line-height:38px; background:url('../img/contact.png') no-repeat -268px 0;}
 section#contact p.more {display:none;}
-footer {width:780px; margin:20px auto 0; text-align:center;}
+footer {width:780px; margin:20px auto 0; text-align:center; overflow:hidden!important;}
 footer p {padding:0 0 40px 0; font:normal 12px Arial; color:#999999;}
 a.xavijam {float:right; padding:0 0 23px 0; background:url('../img/gentoos.png') no-repeat 0 12px; font:normal 9px "PT Sans"; color:#777777; text-decoration:none;}
 a.xavijam em {display:block; padding:0 6px 0 0; text-align:right;}
@@ -109,195 +109,31 @@ div.tooltip p {font-size:12px; text-align: center}
 
 
 /* SLIDER */
- 
-/* The Nivo Slider styles */
-.nivoSlider {
-  position:relative;
-  width:777px;
-  height:400px;
-  overflow: hidden!important;
-}
-.nivoSlider img {
-  position:absolute;
-  top:0px;
-  left:0px;
-}
-.nivo-main-image {
-  display: block !important;
-  position: relative !important; 
-  width: 100% !important;
-}
-
-/* If an image is wrapped in a link */
-.nivoSlider a.nivo-imageLink {
-  position:absolute;
-  top:0px;
-  left:0px;
-  width:100%;
-  height:100%;
-  border:0;
-  padding:0;
-  margin:0;
-  z-index:6;
-  display:none;
-}
-/* The slices and boxes in the Slider */
-.nivo-slice {
-  display:block;
-  position:absolute;
-  z-index:5;
-  height:100%;
-  top:0;
-}
-.nivo-box {
-  display:block;
-  position:absolute;
-  z-index:5;
-  overflow:hidden;
-}
-.nivo-box img { display:block; }
-
-/* Caption styles */
-.nivo-caption {
-  position:absolute;
-  left:0px;
-  bottom:0px;
-  background:#000;
-  color:#fff;
-  width:100%;
-  z-index:8;
-  padding: 5px 10px;
-  opacity: 0.8;
-  overflow: hidden;
-  display: none;
-  -moz-opacity: 0.8;
-  filter:alpha(opacity=8);
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
-}
-.nivo-caption p {
-  padding:5px;
-  margin:0;
-}
-.nivo-caption a {
-  display:inline !important;
-}
-.nivo-html-caption {
-    display:none;
-}
-/* Direction nav styles (e.g. Next & Prev) */
-.nivo-directionNav a {
-  position:absolute;
-  top:45%;
-  z-index:9;
-  cursor:pointer;
-}
-.nivo-prevNav {
-  left:0px;
-}
-.nivo-nextNav {
-  right:0px;
-}
-/* Control nav styles (e.g. 1,2,3...) */
-.nivo-controlNav {
-  position:absolute;
-  background:rgba(0,0,0,0.4);
-  -webkit-border-radius:10px;
-  border-radius:10px;
-  -moz-border-radius:10px;
-  bottom:10px;
-  left:50%;
-  width:auto;
-  margin-left:-40px;
-  padding:3px 5px!important;
-  display:inline-block;
-  padding:0;
-  text-align:center;
-  z-index:1000;
-}
-.nivo-controlNav a {
-  cursor:pointer;
-}
-.nivo-controlNav a.active {
-  font-weight:bold;
-}
-
-
-.theme-default .nivoSlider {
-  position:relative;
-  background:#fff url(../img/loading.gif) no-repeat 50% 50%;
-}
-.theme-default .nivoSlider img {
-  position:absolute;
-  top:0px;
-  left:0px;
-  display:none;
-}
-.theme-default .nivoSlider a {
-  border:0;
-  display:block;
-}
-
-.theme-default .nivo-controlNav a {
-  display:inline-block;
-  width:10px;
-  height:9px;
-  background:url(../img/bullets.png) no-repeat;
-  text-indent:-9999px;
-  border:0;
-  margin: 0 2px;
-}
-.theme-default .nivo-controlNav a.active {
-  background-position:0 -19px;
-}
-
-.theme-default .nivo-directionNav a {
-  display:block;
-  width:40px;
-  height:40px;
-  background:url(../img/arrows.png) no-repeat 17px 16px rgba(0,0,0,0.5);
-  -webkit-border-radius:5px;
-  border-radius:5px;
-  -moz-border-radius:5px;
-  text-indent:-9999px;
-  border:0;
-}
-
-.theme-default .nivo-directionNav a:hover {
-  background-color: rgba(0,0,0,0.7)
-}
-
-.theme-default a.nivo-nextNav {
-  background-position:-11px 16px;
-  right:15px;
-}
-.theme-default a.nivo-prevNav {
-  left:15px;
-}
-
-.theme-default .nivo-caption {
-    font-family: Helvetica, Arial, sans-serif;
-}
-.theme-default .nivo-caption a {
-    color:#fff;
-    border-bottom:1px dotted #fff;
-}
-.theme-default .nivo-caption a:hover {
-    color:#fff;
-}
-
-.theme-default .nivo-controlNav.nivo-thumbs-enabled {
-  width: 100%;
-}
-.theme-default .nivo-controlNav.nivo-thumbs-enabled a {
-  width: auto;
-  height: auto;
-  background: none;
-  margin-bottom: 5px;
-}
-.theme-default .nivo-controlNav.nivo-thumbs-enabled img {
-  display: block;
-  width: 120px;
-  height: auto;
-}
+ .nivoSlider{position:relative;width:777px;height:400px}
+.nivoSlider img{position:absolute;top:0;left:0}
+.nivo-main-image{display:block!important;position:relative!important;width:100%!important}
+.nivoSlider a.nivo-imageLink{position:absolute;top:0;left:0;width:100%;height:100%;border:0;z-index:6;display:none;margin:0;padding:0}
+.nivo-slice{display:block;position:absolute;z-index:5;height:100%;top:0}
+.nivo-box{display:block;position:absolute;z-index:5;overflow:hidden}
+.nivo-box img{display:block}
+.nivo-directionNav a{position:absolute;top:45%;z-index:9;cursor:pointer}
+.nivo-prevNav{left:0}
+.nivo-nextNav{right:0}
+.nivo-controlNav{position:absolute;background:rgba(0,0,0,0.4);-webkit-border-radius:10px;border-radius:10px;-moz-border-radius:10px;bottom:10px;left:50%;width:auto;margin-left:-40px;display:inline-block;text-align:center;z-index:1000;padding:5px!important; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#55000000, endColorstr=#55000000); line-height:9px\9;}
+.nivo-controlNav a{cursor:pointer}
+.nivo-controlNav a.active{font-weight:700}
+.theme-default .nivoSlider{position:relative;background:#fff url(../img/loading.gif) no-repeat 50% 50%}
+.theme-default .nivoSlider img{position:absolute;top:0;left:0;display:none}
+.theme-default .nivoSlider a{border:0;display:block}
+.theme-default .nivo-controlNav a{float:left; display:inline-block; display:-moz-inline-stack; zoom:1; *display:inline; vertical-align:top; width:10px;height:9px;background:url(../img/bullets.png) no-repeat;text-indent:-9999px;border:0;margin:0 2px}
+.theme-default .nivo-controlNav a.active{background-position:0 -19px}
+.theme-default .nivo-directionNav a{display:block;width:40px;height:40px;background:url(../img/arrows.png) no-repeat 17px 16px rgba(0,0,0,0.5);-webkit-border-radius:5px;border-radius:5px;-moz-border-radius:5px;text-indent:-9999px;border:0}
+.theme-default .nivo-directionNav a:hover{background-color:rgba(0,0,0,0.7)}
+.theme-default a.nivo-nextNav{background-position:-11px 16px;right:15px}
+.theme-default a.nivo-prevNav{left:15px}
+.theme-default .nivo-caption{font-family:Helvetica, Arial, sans-serif}
+.theme-default .nivo-caption a{color:#fff;border-bottom:1px dotted #fff}
+.theme-default .nivo-caption a:hover{color:#fff}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled{width:100%}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled a{width:auto;height:auto;background:none;margin-bottom:5px}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled img{display:block;width:120px;height:auto}
