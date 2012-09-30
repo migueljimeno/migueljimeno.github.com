@@ -42,8 +42,8 @@ table {
 	border-spacing: 0;
 }
 
-a {color:#333333; text-decoration:underline; font-weight:bold;}
-a:hover {color:black;}
+a {color:#009ECC; text-decoration:none; font-weight:bold;}
+a:hover {text-decoration:underline;}
 strong {font-weight:bold;}
 h1 {float:left; width:auto; padding:0 0 0 38px; font:normal 35px "PT Sans",Arial; letter-spacing:-3px; line-height:35px; color:black; background:url('../img/sprite.png') no-repeat 0 -41px;}
 h1 strong {margin:0 0 0 5px;}
@@ -52,6 +52,7 @@ h2 {position:relative; font:bold 55px "PT Sans"; color:#666666; line-height:norm
 h2 small {padding:0 0 0 4px; font-size:14px; letter-spacing:0; line-height:55px; color:#CCCCCC; text-transform:uppercase;}
 h2 em {padding:0 0 0 4px; font-size:20px; color:#999999;}
 h2 span {position:absolute; top:0px; left:58px; color:#999; font-size:35px; line-height:38px;}
+h2 span:hover {cursor:pointer; color:#666;}
 h3 {padding:2px 0 12px 27px; font:bold 15px "PT Sans",Arial; color:#454545; font-weight:700; background:url('../img/sprite.png') no-repeat 0 0; letter-spacing:0;}
 h3.price {background-position:0 -199px;}
 h3.contact {background-position:0 -238px;}
@@ -67,7 +68,7 @@ body {height:100%; width:100%; background:url('../img/bkg.jpg') repeat 0 0;}
 header {margin:30px auto 40px; width:780px; overflow:hidden;}
 header nav {float:right; width:auto; margin:11px 0 0;}
 header a {margin:0 0 0 25px; font:bold 14px "PT Sans",Arial; color:#666666; text-decoration:none; border-bottom:1px solid rgba(0,0,0,0); transition: border-bottom 1s; -moz-transition: border-bottom 1s; -webkit-transition: border-bottom 1s; -o-transition: border-bottom 1s;}
-header a:hover {border-bottom:1px solid black; transition: border-bottom .5s; -moz-transition: border-bottom .5s; -webkit-transition: border-bottom .5s; -o-transition: border-bottom .5s;}
+header a:hover {border-bottom:1px solid black; transition: border-bottom .5s; -moz-transition: border-bottom .5s; -webkit-transition: border-bottom .5s; -o-transition: border-bottom .5s; text-decoration:none;}
 div#layout {margin:0 auto; width:789px;}
 article {position:relative; width:777px; padding:0 6px; background:url('../img/sprite.png') repeat-y -789px 0;}
 article div.b {position:absolute; bottom:-12px; left:0; width:789px; height:12px; background:url('../img/sprite.png') no-repeat 0 -9px;}
@@ -76,11 +77,11 @@ article div.t span.cl {position:absolute; top:5px; left:0; width:12px; height:12
 article div.t span.cr {position:absolute; top:5px; right:0; width:12px; height:12px; background:url('../img/corner.png') -25px -8px;}
 section {position:relative; padding:30px; display:block; border-bottom:1px solid #DDDDDD;}
 section:last-child {position:relative; border:none;}
-section.gallery {padding:0; border-top:1px solid #D8D8D8;}
-section.map {position:relative; height:510px; padding-bottom:0;}
+section.gallery {width:100%; height:400px; padding:0; border-top:1px solid #D8D8D8; overflow:hidden;}
+section.map {position:relative; height:auto; padding-bottom:330px;}
 div.info {position:absolute; display:none; top:150px; right:10px; width:200px; height:auto; padding:10px; background:rgba(0,0,0,0.75); z-index:10; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#550000FF, endColorstr=#550000FF);}
-div.info p {color:white;}
-div#map {position:absolute; bottom:0; left:0; height:400px; width:100%; z-index:1; border-top:1px solid #DDDDDD;}
+div.info p {font-size:13px; color:#F7F7F7; word-spacing:1px;}
+div#map {position:absolute; bottom:0; left:0; height:300px; width:100%; z-index:1; border-top:1px solid #DDDDDD;}
 ul.prices li {margin:20px 21px 0 0; background:url('../img/sprite.png') no-repeat 0 0;}
 ul.prices li.bench {background-position:0 -86px;}
 ul.prices li.home {background-position:-245px -84px;}
@@ -89,11 +90,23 @@ section ul li.bench p,
 section ul li.home p,
 section ul li.money p {position:absolute; top:58px; left:88px; font:bold 13px "Droid Sans"; color:#ABABAB; line-height:normal;}
 ul.prices li {width:140px; padding:0 0 0 85px;}
+section#contact ul {display:block; margin-top:30px;}
+section#contact p.phone {height:38px; padding-left:40px; font-size:25px; letter-spacing:-1px; line-height:38px; background:url('../img/contact.png');}
+section#contact p.email {min-height:38px; padding-left:50px; font-size:15px; line-height:38px; background:url('../img/contact.png') no-repeat -268px 0;}
+section#contact p.more {display:none;}
 footer {width:780px; margin:20px auto 0; text-align:center;}
 footer p {padding:0 0 40px 0; font:normal 12px Arial; color:#999999;}
 a.xavijam {float:right; padding:0 0 23px 0; background:url('../img/gentoos.png') no-repeat 0 12px; font:normal 9px "PT Sans"; color:#777777; text-decoration:none;}
 a.xavijam em {display:block; padding:0 6px 0 0; text-align:right;}
 a.xavijam:hover {color:#333333;}
+
+
+/* TOOLTIP */
+div.tooltip {position:absolute; display:none; top:0; left:0; width:182px; height:auto; margin-left:-91px; z-index:10; pointer-events:none;}
+div.tooltip div.t {width:140px; padding:18px 21px 0 21px; background:url('../img/tooltip.png') right 0;}
+div.tooltip div.b {width:182px; height:20px; background:url('../img/tooltip.png') left 0;}
+div.tooltip p {font-size:12px; text-align: center}
+
 
 /* SLIDER */
  
@@ -102,7 +115,7 @@ a.xavijam:hover {color:#333333;}
   position:relative;
   width:777px;
   height:400px;
-  overflow: hidden;
+  overflow: hidden!important;
 }
 .nivoSlider img {
   position:absolute;
@@ -189,10 +202,16 @@ a.xavijam:hover {color:#333333;}
 /* Control nav styles (e.g. 1,2,3...) */
 .nivo-controlNav {
   position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
-  display:block;
+  background:rgba(0,0,0,0.4);
+  -webkit-border-radius:10px;
+  border-radius:10px;
+  -moz-border-radius:10px;
+  bottom:10px;
+  left:50%;
+  width:auto;
+  margin-left:-40px;
+  padding:3px 5px!important;
+  display:inline-block;
   padding:0;
   text-align:center;
   z-index:1000;
@@ -203,8 +222,6 @@ a.xavijam:hover {color:#333333;}
 .nivo-controlNav a.active {
   font-weight:bold;
 }
-
-
 
 
 .theme-default .nivoSlider {
@@ -224,27 +241,35 @@ a.xavijam:hover {color:#333333;}
 
 .theme-default .nivo-controlNav a {
   display:inline-block;
-  width:22px;
-  height:22px;
+  width:10px;
+  height:9px;
   background:url(../img/bullets.png) no-repeat;
   text-indent:-9999px;
   border:0;
   margin: 0 2px;
 }
 .theme-default .nivo-controlNav a.active {
-  background-position:0 -22px;
+  background-position:0 -19px;
 }
 
 .theme-default .nivo-directionNav a {
   display:block;
-  width:30px;
-  height:30px;
-  background:url(../img/arrows.png) no-repeat;
+  width:40px;
+  height:40px;
+  background:url(../img/arrows.png) no-repeat 17px 16px rgba(0,0,0,0.5);
+  -webkit-border-radius:5px;
+  border-radius:5px;
+  -moz-border-radius:5px;
   text-indent:-9999px;
   border:0;
 }
+
+.theme-default .nivo-directionNav a:hover {
+  background-color: rgba(0,0,0,0.7)
+}
+
 .theme-default a.nivo-nextNav {
-  background-position:-30px 0;
+  background-position:-11px 16px;
   right:15px;
 }
 .theme-default a.nivo-prevNav {
