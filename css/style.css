@@ -67,7 +67,7 @@ li:last-child {margin-right:0!important;}
 
 body {height:100%; width:100%; background:url('../img/bkg.jpg') repeat 0 0;}
 header {position:relative; margin:0 auto; padding:30px 0 40px; width:780px; height:50px;}
-header span#toy {position:absolute; width:142px; height:290px; top:-65px; left:-25px; background:url('../img/toy.png') no-repeat 0 0; opacity:0; filter: alpha(opacity=0); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; z-index:0;}
+header span#toy {position:absolute; width:142px; height:290px; top:-65px; left:-25px; background:url('../img/toy.png') no-repeat 0 0; z-index:0;}
 header nav {float:right; width:auto; margin:11px 0 0;}
 header a {margin:0 0 0 25px; font:bold 14px "PT Sans",Arial; color:#666666; text-decoration:none; border-bottom:1px solid rgba(0,0,0,0); transition: border-bottom 1s; -moz-transition: border-bottom 1s; -webkit-transition: border-bottom 1s; -o-transition: border-bottom 1s;}
 header a:hover {border-bottom:1px solid black; transition: border-bottom .5s; -moz-transition: border-bottom .5s; -webkit-transition: border-bottom .5s; -o-transition: border-bottom .5s; text-decoration:none;}

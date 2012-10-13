@@ -23,7 +23,6 @@
       var position = this.positions[index];
 
       this.$el.animate({
-        opacity:1,
         left: position.x,
         top: position.y,
         marginTop:"10px"
