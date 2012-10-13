@@ -48,6 +48,7 @@ strong {font-weight:bold;}
 h1 {float:left; width:auto; padding:0 0 0 38px; font:normal 35px "PT Sans",Arial; letter-spacing:-3px; line-height:35px; color:black; background:url('../img/sprite.png') no-repeat 0 -41px;}
 h1 strong {margin:0 0 0 5px;}
 h1 span {display:block; font:normal 14px "Droid Sans"; color:#666666; text-align:right; letter-spacing:-1px;}
+h1 span a {font-weight:normal;}
 h2 {position:relative; font:bold 55px "PT Sans"; color:#666666; line-height:normal; letter-spacing:-3px;}
 h2 small {padding:0 0 0 4px; font-size:14px; letter-spacing:0; line-height:55px; color:#CCCCCC; text-transform:uppercase;}
 h2 em {padding:0 0 0 4px; font-size:20px; color:#999999;}
@@ -60,12 +61,13 @@ h3.map {background-position:0 -284px;}
 h3.info {background-position:0 -326px;}
 p {font:normal 14px "Droid Sans",Arial; color:#898989; line-height:20px;}
 ul {width:100%; margin:12px 0 0 0; letter-spacing:-4px;}
-li {position:relative; display:inline-block; display:-moz-inline-stack; zoom:1; *display:inline; vertical-align:top; width:225px; margin:0 20px 0 0; letter-spacing:0;}
+li {position:relative; display:inline-block; zoom:1; *display:inline; vertical-align:top; width:225px; margin:0 20px 0 0; letter-spacing:0;}
 li:last-child {margin-right:0!important;}
 
 
 body {height:100%; width:100%; background:url('../img/bkg.jpg') repeat 0 0;}
-header {margin:30px auto 40px; width:780px; overflow:hidden;}
+header {position:relative; margin:0 auto; padding:30px 0 40px; width:780px; height:50px;}
+header span#toy {position:absolute; width:142px; height:290px; top:-65px; left:-25px; background:url('../img/toy.png') no-repeat 0 0; opacity:0; filter: alpha(opacity=0); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; z-index:0;}
 header nav {float:right; width:auto; margin:11px 0 0;}
 header a {margin:0 0 0 25px; font:bold 14px "PT Sans",Arial; color:#666666; text-decoration:none; border-bottom:1px solid rgba(0,0,0,0); transition: border-bottom 1s; -moz-transition: border-bottom 1s; -webkit-transition: border-bottom 1s; -o-transition: border-bottom 1s;}
 header a:hover {border-bottom:1px solid black; transition: border-bottom .5s; -moz-transition: border-bottom .5s; -webkit-transition: border-bottom .5s; -o-transition: border-bottom .5s; text-decoration:none;}
@@ -82,6 +84,11 @@ section.map {position:relative; height:auto; padding-bottom:330px;}
 div.info {position:absolute; display:none; top:150px; right:10px; width:200px; height:auto; padding:10px; background:rgba(0,0,0,0.75); z-index:10; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#550000FF, endColorstr=#550000FF);}
 div.info p {font-size:13px; color:#F7F7F7; word-spacing:1px;}
 div#map {position:absolute; bottom:0px; *bottom:1px; left:0; height:300px; width:100%; z-index:1; border-top:1px solid #DDDDDD;}
+div.zoom-controls {position:absolute; top:10px; right:10px; width:30px; z-index:10000;}
+div.zoom-controls a {position:relative; display:block; width:30px; height:20px; padding:5px 0; line-height:normal; font:bold 17px Arial; text-align:center; background:#666666; background:rgba(0,0,0,0.7); text-decoration: none; color:white;}
+div.zoom-controls .zIn {-webkit-border-top-right-radius: 2px; -webkit-border-top-left-radius: 2px; -moz-border-radius-topright: 2px; -moz-border-radius-topleft: 2px; border-bottom-top-radius: 2px; border-top-left-radius: 2px;}
+div.zoom-controls .zOut {border-top:1px solid white; border-top:1px solid rgba(255,255,255,0.5); -webkit-border-bottom-right-radius: 2px; -webkit-border-bottom-left-radius: 2px; -moz-border-radius-bottomright: 2px; -moz-border-radius-bottomleft: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px;}
+div.zoom-controls a:hover {background:#009ECC; background:rgba(0, 158, 204, 0.91); color:#f2f2f2;}
 ul.prices li {margin:20px 21px 0 0; background:url('../img/sprite.png') no-repeat 0 0;}
 ul.prices li.bench {background-position:0 -86px;}
 ul.prices li.home {background-position:-245px -84px;}
@@ -90,13 +97,14 @@ section ul li.bench p,
 section ul li.home p,
 section ul li.money p {position:absolute; top:58px; left:88px; width:100%; font:bold 13px "Droid Sans"; color:#ABABAB; line-height:normal;}
 ul.prices li {width:140px; padding:0 0 0 85px;}
-section#contact ul {display:block; margin-top:30px;}
-section#contact p.phone {height:38px; padding-left:40px; font-size:25px; letter-spacing:-1px; line-height:38px; background:url('../img/contact.png');}
-section#contact p.email {min-height:38px; padding-left:50px; font-size:15px; line-height:38px; background:url('../img/contact.png') no-repeat -268px 0;}
-section#contact p.more {display:none;}
+section#contact ul {display:block; margin-top:5px;}
+section#contact p {position:relative; display:block!important;}
+section#contact p.phone {width:100%; height:38px; margin:18px 0 0 0; padding-left:40px; font-size:28px; letter-spacing:-1px; line-height:40px; background:url('../img/contact.png') no-repeat 0 0;}
+section#contact p.email {margin:26px 0 0 0;}
+section#contact p.email a {display:block; font-size:19px; letter-spacing:-1px; font-weight:normal}
 footer {width:780px; margin:20px auto 0; text-align:center; overflow:hidden!important;}
 footer p {padding:0 0 40px 0; font:normal 12px Arial; color:#999999;}
-a.xavijam {float:right; padding:0 0 23px 0; background:url('../img/gentoos.png') no-repeat 0 12px; font:normal 9px "PT Sans"; color:#777777; text-decoration:none;}
+a.xavijam {float:right; height:26px; padding:0 0 21px 0; background:url('../img/gentoos.png') no-repeat 0 bottom; font:normal 9px "PT Sans"; color:#777777; text-decoration:none;}
 a.xavijam em {display:block; padding:0 6px 0 0; text-align:right;}
 a.xavijam:hover {color:#333333;}
 
@@ -125,7 +133,7 @@ div.tooltip p {font-size:12px; text-align: center}
 .theme-default .nivoSlider{position:relative;background:#fff url(../img/loading.gif) no-repeat 50% 50%}
 .theme-default .nivoSlider img{position:absolute;top:0;left:0;display:none}
 .theme-default .nivoSlider a{border:0;display:block}
-.theme-default .nivo-controlNav a{float:left; display:inline-block; display:-moz-inline-stack; zoom:1; *display:inline; vertical-align:top; width:10px;height:9px;background:url(../img/bullets.png) no-repeat;text-indent:-9999px;border:0;margin:0 2px}
+.theme-default .nivo-controlNav a{float:left; display:inline-block; zoom:1; *display:inline; vertical-align:top; width:10px;height:9px;background:url(../img/bullets.png) no-repeat;text-indent:-9999px;border:0;margin:0 2px}
 .theme-default .nivo-controlNav a.active{background-position:0 -19px}
 .theme-default .nivo-directionNav a{display:block;width:40px;height:40px;background:url(../img/arrows.png) no-repeat 17px 16px rgba(0,0,0,0.5);-webkit-border-radius:5px;border-radius:5px;-moz-border-radius:5px;text-indent:-9999px;border:0}
 .theme-default .nivo-directionNav a:hover{background-color:rgba(0,0,0,0.7)}

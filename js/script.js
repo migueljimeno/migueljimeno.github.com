@@ -7,6 +7,11 @@
 
       el: document,
 
+      options: {
+        time: 5000,
+        start: 0
+      },
+
       events: {
         "click header > nav > a":  "_goAnchor"
       },
@@ -19,7 +24,6 @@
 
 
       _initWidgets: function() {
-
         // Tooltips
         // - Away
         var away_tooltip = new Tooltip({
@@ -35,12 +39,25 @@
         });
         this.$("body").append(second_tooltip.render());
 
-
-        // Slider 
-        this.$el.find('#gallery').nivoSlider({
-          pauseTime: 5000
+        // Toy
+        var toy = this.toy = new Toy({
+          el: this.$('#toy'),
+          time: this.options.time,
+          start: this.options.start
         });
 
+        // Slider
+        var $nivo = this.$el.find('#gallery').nivoSlider({
+          pauseTime: this.options.time,
+          randomStart: true,
+          startSlide: this.options.start,
+          beforeChange: function(){
+            var currentSlide = $nivo.data('nivo:vars').currentSlide 
+              , nextSlide = (currentSlide > 3 ) ? currentSlide = 0 : currentSlide + 1;
+
+            toy.update(nextSlide);
+          }
+        });
 
         // Map
         var map = new Map({

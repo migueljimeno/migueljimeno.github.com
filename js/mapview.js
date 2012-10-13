@@ -25,13 +25,14 @@
       },
       base_map: [{featureType: "all",elementType: "all",stylers: [{ saturation: -100 }]},{featureType: "all",elementType: "all",stylers: []}],
       fleky_markerImage: new google.maps.MarkerImage('../img/marker-1.png',new google.maps.Size(30,30),new google.maps.Point(0,0),new google.maps.Point(15, 15)),
-      user_markerImage: new google.maps.MarkerImage('../img/marker-2.png',new google.maps.Size(23, 32),new google.maps.Point(0,0),new google.maps.Point(12, 32))
+      user_markerImage: new google.maps.MarkerImage('../img/marker-2.png',new google.maps.Size(25, 41),new google.maps.Point(0,0),new google.maps.Point(12, 41))
     },
 
 
     initialize: function() {
       _.bindAll(this,"_onErrorGeolocation");
       this._initMap();
+      this._addZoom();
       this._geolocateUser();
     },
 
@@ -56,6 +57,27 @@
       // Add both clinics to the map
       var alcorcon_marker = new google.maps.Marker({position: this.options.alcorcon.place, map:map, title:this.options.alcorcon.address,icon:this.options.fleky_markerImage})
       , mataelpino_marker = new google.maps.Marker({position: this.options.mataelpino.place, map:map, title:this.options.mataelpino.address,icon:this.options.fleky_markerImage});
+    },
+
+
+    _addZoom: function() {
+      var map = this.map
+        , $map = $(map.getDiv());
+
+
+      $map.append('<div class="zoom-controls">\
+        <a href="#zoom_in" class="zIn">+</a>\
+        <a href="#zoom_out" class="zOut">-</a>\
+      </div>');
+
+      $map.find(".zIn").click(function(ev) {
+        ev.preventDefault();
+        map.setZoom(map.getZoom() + 1)
+      });
+      $map.find(".zOut").click(function(ev) {
+        ev.preventDefault();
+        map.setZoom(map.getZoom() - 1)
+      });
     },
 
 
@@ -114,9 +136,9 @@
       }
 
       if (active) {
-        this.options.textBox.append('<p>Nosotros nos encontramos en dos localidades, pero la clínica que más cerca tienes está a ' + clinic.dist.toFixed(1) + 'km, y la puedes encontrar en: <strong>' + clinic.link + "</strong>.</p>");
+        this.options.textBox.append('<p>Dispongo de consultas en dos localidades, pero la más cercana se encuentra a <strong>' + clinic.dist.toFixed(1) + 'km</strong>, y la puedes encontrar en: <strong>' + clinic.link + "</strong>.</p>");
       } else {
-        this.options.textBox.append('<p style="margin-top:20px;">Sino también nos tienes a ' + clinic.dist.toFixed(1) + 'km en ' + clinic.link + ".</p>");
+        this.options.textBox.append('<p style="margin-top:20px;">Sino también puedes visitarme a ' + clinic.dist.toFixed(1) + 'km en ' + clinic.link + ".</p>");
       }
 
 
@@ -134,8 +156,8 @@
         });
 
         if (active)
-          this.options.textBox.find('p').html('¡Vaya!, parece que estás un poco lejos de nosotros, ' +hours+((hours==1)?' hora':' horas')+ ' en avión'+
-            '</br></br>Si decides venir a Madrid puedes visitarnos en:</br></br>' + this.options.alcorcon.address +
+          this.options.textBox.find('p').html('¡Vaya!, parece que estás un poco lejos de alguna de las consultas, <strong>' +hours+((hours==1)?' hora':' horas')+ '</strong> en avión'+
+            '</br></br>Si decides venir a Madrid puedes visitarme en:</br></br>' + this.options.alcorcon.address +
             "</br><span style='display:inline-block;margin:5px 0'>ó</span></br>" + this.options.mataelpino.address);
       }
     },
