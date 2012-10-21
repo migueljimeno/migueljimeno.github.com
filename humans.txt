@@ -12,4 +12,4 @@
 
 /* SITE */
   Standards: HTML5, CSS3
-  Components: Modernizr, Selectivizr, jQuery, Backbone
+  Components: Modernizr, Selectivizr, jQuery, Backbone, GMapsv3
